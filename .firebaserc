@@ -9,6 +9,13 @@
           "ezer-text"
         ]
       }
+    },
+    "ezer-digital": {
+      "hosting": {
+        "ezer-text": [
+          "ezer-text-site"
+        ]
+      }
     }
   },
   "etags": {}

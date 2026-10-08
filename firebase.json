@@ -13,7 +13,7 @@
     }
   ],
   "hosting": {
-    "target": "ezer-text",
+    "site": "ezer-text-site",
     "public": "frontend",
     "ignore": [
       "firebase.json",
