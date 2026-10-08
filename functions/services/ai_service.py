@@ -27,7 +27,7 @@ def get_ai_response(prompt):
                     "content": prompt,
                 }
             ],
-            model="llama-3.1-8b-instant", # Updated from decommissioned llama3-8b-8192
+            model="allam-2-7b", # Updated from llama-3.1-8b-instant due to access limits
             temperature=0.2, # Low temperature for factual biblical answers
             max_tokens=300,
         )

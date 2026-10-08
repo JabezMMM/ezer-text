@@ -26,5 +26,16 @@
         "function": "generate"
       }
     ]
+  },
+  "emulators": {
+    "functions": {
+      "port": 5005
+    },
+    "hosting": {
+      "port": 5006
+    },
+    "ui": {
+      "enabled": false
+    }
   }
 }
