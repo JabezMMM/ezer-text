@@ -27,58 +27,69 @@ The tool presents a curated set of reflective questions related to spiritual mat
 ## 📂 Project Structure
 ezer-reflection-tool/
 │
-├── index.html              # Main HTML structure
-├── css/
-│   └── style.css           # All UI styles
-├── js/
-│   └── script.js           # Core logic (questions, chart, slider handling)
+├── frontend/               # Static Frontend (Firebase Hosting)
+│   ├── index.html
+│   ├── script.js
+│   └── style.css
+├── backend/                # Flask Backend API (Render/Railway)
+│   ├── server.py
+│   ├── services/
+│   └── data/
+├── models/                 # AI Model Configuration
+├── firebase.json           # Firebase Hosting Config
 └── README.md               # Project documentation
 
 ---
 
 ## 📱 Tech Stack
 
-- HTML5  
-- CSS3 (Flexbox, Media Queries)  
-- Vanilla JavaScript (ES6+)  
-- Chart.js for radar visualization  
+- **Frontend**: HTML5, CSS3, Vanilla JavaScript, Chart.js (Hosted on Firebase)
+- **Backend**: Python, Flask, Requests (Hosted on Render/Railway)
+- **Integration**: Proxy to Hugging Face Spaces for AI generation
 
 ---
 
 ## 🚀 Getting Started
 
-1. Clone or download the repository.  
-2. Open `index.html` in any modern browser.  
-3. Interact with the sliders to assess yourself.  
-4. The radar chart updates in real-time based on your responses.  
+### Prerequisites
+- Python 3.8+
+- pip
+- Firebase CLI (`npm install -g firebase-tools`)
+
+### local Development
+
+1. **Backend**:
+   ```bash
+   pip3 install -r backend/requirements.txt
+   python3 backend/server.py
+   ```
+2. **Frontend**:
+   Open `frontend/index.html` in your browser.
 
 ---
 
-## 🛠 Planned Enhancements
+## ☁️ Deployment
 
-- Save/export responses (localStorage or PDF)  
-- Add scoring logic and recommendations  
-- Introduce group reflection mode  
-- Theming / dark mode toggle  
-- Mobile UX refinements  
+### Firebase Hosting (Frontend)
+Target Project: `ezer-text` (via `eliyezer-site`)
 
----
+1. Login to Firebase:
+   ```bash
+   firebase login
+   ```
+2. Deploy the `frontend/` folder:
+   ```bash
+   firebase use --add eliyezer-site  # Alias as ezer-text if configured in .firebaserc
+   firebase deploy --only hosting
+   ```
 
-## 🤝 Contributing
-
-Pull requests are welcome if aligned with the vision of spiritual growth and simplicity. Please open an issue first to discuss potential changes.
-
----
-
-## 🙏 Purpose
-
-This tool is intended to serve as a gentle mirror for personal discipleship, helping individuals reflect on Christlike maturity and areas for growth, grounded in Scripture and community.
+### Backend Deployment
+Deploy the `backend/` folder to a Python-compatible host (Render, Railway, Heroku). Update `frontend/script.js` with the production URL.
 
 ---
 
-© 2025 Ezer Disciples. All rights reserved.
+## ✅ Todo / Roadmap
 
-to run locally;
-@JabezMMM ➜ /workspaces/ezer-disciple (dev) $ pkill -f "server.py\|http.server" || true; cd /workspaces/ezer-disciple && python3 -m http.server 3001
-
-cd /workspaces/ezer-disciple;export PORT=8000;python3 server.py;
+- [x] **CI/CD Pipeline**: Add conditional logic to deploy only the `frontend/` folder to Firebase on merge.
+- [ ] **Backend Hosting**: Finalize backend deployment strategy.
+- [ ] **E2E Tests**: Update tests for separated architecture.
